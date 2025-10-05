@@ -28,4 +28,4 @@ jobs:
         run: sigma version
 
       - name: Lint Sigma rules
-        run: sigma check detections/sigma_rules/ wuzah_rules/--fail-on-error
+        run: sigma check detections/sigma_rules/ wuzah_rules/ --fail-on-error
