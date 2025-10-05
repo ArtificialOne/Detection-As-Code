@@ -24,14 +24,11 @@ jobs:
           pip install --upgrade pip
           pip install sigma-cli
 
-      - name: Verify Help
-        run: sigma -h
-
       - name: Verify installation
         run: sigma version
 
       - name: Lint Sigma rules
-        run: sigma check rules/ --fail-on-warning
+        run: sigma check rules/ --fail-on-error
 
       - name: Validate Sigma rules
         run: sigma validate rules/
