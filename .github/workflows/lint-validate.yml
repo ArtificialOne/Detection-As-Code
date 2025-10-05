@@ -24,6 +24,9 @@ jobs:
           pip install --upgrade pip
           pip install sigma-cli
 
+      - name: Verify Help
+        run: sigma -h
+
       - name: Verify installation
         run: sigma --version
 
