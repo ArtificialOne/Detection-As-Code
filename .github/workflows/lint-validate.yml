@@ -36,5 +36,5 @@ jobs:
           mkdir -p wazuh_converted 
           #Converts all .yml in Sigma
           sigma convert detections/sigma_rules/ \
-            --target es-qs \
-            --output wazuh_converted/ #Saves converted rules into output folder
+            --target elasticsearch \
+            --output wazuh_converted/
