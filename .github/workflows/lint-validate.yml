@@ -28,7 +28,7 @@ jobs:
         run: sigma version
 
       - name: Lint Sigma rules
-        run: sigma check rules/ --fail-on-error
+        run: sigma check sigma_rules/ --fail-on-error
 
       - name: Validate Sigma rules
-        run: sigma validate rules/
+        run: sigma validate sigma_rules/
