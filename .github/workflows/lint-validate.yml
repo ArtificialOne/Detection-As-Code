@@ -35,6 +35,6 @@ jobs:
           mkdir -p wazuh_converted
           sigma plugin install elasticsearch
           sigma convert detections/sigma_rules/ \
-            --target eql \
+            --target esql \
             --pipeline ecs_windows \
             --output wazuh_converted/
