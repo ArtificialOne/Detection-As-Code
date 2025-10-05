@@ -1,0 +1,17 @@
+title: Suspicious PowerShell Encoded Command
+id: e1f27d4c-9f65-4a8a-b92c-91d65acb6c3f
+status: experimental
+description: Detects PowerShell execution with -enc or -encodedcommand.
+author: Your Name
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    CommandLine|contains:
+      - "-enc"
+      - "-encodedcommand"
+  condition: selection
+fields:
+  - CommandLine
+level: high
