@@ -27,5 +27,12 @@ jobs:
       - name: Verify installation
         run: sigma version
 
-      - name: Lint Sigma rules
+      - name: Check Sigma rules (Lint + validate)
         run: sigma check detections/sigma_rules/ wuzah_rules/ --fail-on-error
+
+      - name: Convert Sigma rules to Wazuh format
+        run: |
+          mkdir -p wazuh_converted #Creates output folder for rules
+          sigma convert detections/sigma_rules/ \ #Converts all .yml in Sigma
+            --target es-qs \ #Elasticsearch Query String backend (if no wazuh backend)
+            --output wazuh_converted/ #Saves converted rules into output folder
