@@ -28,10 +28,10 @@ jobs:
         run: sigma -h
 
       - name: Verify installation
-        run: sigma --version
+        run: sigma version
 
       - name: Lint Sigma rules
-        run: sigma lint rules/ --fail-on-warning
+        run: sigma check rules/ --fail-on-warning
 
       - name: Validate Sigma rules
         run: sigma validate rules/
