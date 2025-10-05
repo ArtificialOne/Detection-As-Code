@@ -10,22 +10,10 @@ jobs:
   lint-validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.10'
-
-      - name: Install Sigma CLI
-        run: |
-          pip install sigma-cli
-
-      - name: Lint Sigma rules
-        run: |
-          sigma-cli lint rules/ --fail-on-warning
-
-      - name: Validate Sigma rules
-        run: |
-          sigma-cli validate rules/
+      - run: pip install sigma-cli
+      - run: sigma-cli lint rules/ --fail-on-warning
+      - run: sigma-cli validate rules/
