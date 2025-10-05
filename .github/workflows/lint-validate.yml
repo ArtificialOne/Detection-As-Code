@@ -30,11 +30,12 @@ jobs:
       - name: Check Sigma rules (Lint + validate)
         run: sigma check detections/sigma_rules/ wuzah_rules/ --fail-on-error
 
-      - name: Convert Sigma rules to Wazuh format
-        run: |
-          mkdir -p wazuh_converted
-          sigma plugin install elasticsearch
-          sigma convert detections/sigma_rules/ \
-            --target esql \
-            --pipeline ecs_windows \
-            --output wazuh_converted/
+      # Cannot use target eql, esql, lucene with pipeline ecs_windows
+      #- name: Convert Sigma rules to Wazuh format
+      #  run: |
+      #    mkdir -p wazuh_converted
+      #    sigma plugin install elasticsearch
+      #    sigma convert detections/sigma_rules/ \
+      #      --target esql \
+      #      --pipeline ecs_windows \
+      #      --output wazuh_converted/
