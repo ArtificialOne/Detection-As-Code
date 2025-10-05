@@ -32,9 +32,8 @@ jobs:
 
       - name: Convert Sigma rules to Wazuh format
         run: |
-          #Creates output folder for rules
-          mkdir -p wazuh_converted 
-          #Converts all .yml in Sigma
+          mkdir -p wazuh_converted
+          sigma plugin install elasticsearch
           sigma convert detections/sigma_rules/ \
             --target elasticsearch \
             --output wazuh_converted/
